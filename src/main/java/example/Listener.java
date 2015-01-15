@@ -26,8 +26,8 @@ class Listener {
         String user = env("ACTIVEMQ_USER", "admin");
         String password = env("ACTIVEMQ_PASSWORD", "password");
         String host = env("ACTIVEMQ_HOST", "localhost");
-        int port = Integer.parseInt(env("ACTIVEMQ_PORT", "61614"));
-        String destination = arg(args, 0, "/topic/event");
+        int port = Integer.parseInt(env("ACTIVEMQ_PORT", "61613"));
+        String destination = arg(args, 0, "/queue/xstomp.in.heartbeat");
 
         StompJmsConnectionFactory factory = new StompJmsConnectionFactory();
         factory.setBrokerURI("tcp://" + host + ":" + port);
@@ -50,6 +50,8 @@ class Listener {
                     System.out.println(String.format("Received %d in %.2f seconds", count, (1.0*diff/1000.0)));
                     break;
                 } else {
+                	System.out.println("msg:"+body);
+                	/*
                     if( count != msg.getIntProperty("id") ) {
                         System.out.println("mismatch: "+count+"!="+msg.getIntProperty("id"));
                     }
@@ -62,9 +64,11 @@ class Listener {
                         System.out.println(String.format("Received %d messages.", count));
                     }
                     count ++;
+                    */
                 }
 
-            } else {
+            } 
+            else {
                 System.out.println("Unexpected message type: "+msg.getClass());
             }
         }
