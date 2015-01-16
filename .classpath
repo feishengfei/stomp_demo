@@ -59,4 +59,5 @@
       <attribute value="jar:file:/home/frankzhou/.m2/repository/net/sf/ezmorph/ezmorph/1.0.6/ezmorph-1.0.6-javadoc.jar!/" name="javadoc_location"/>
     </attributes>
   </classpathentry>
+  <classpathentry kind="var" path="M2_REPO/junit/junit/4.7/junit-4.7.jar" sourcepath="M2_REPO/junit/junit/4.7/junit-4.7-sources.jar"/>
 </classpath>
