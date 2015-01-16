@@ -16,8 +16,18 @@
  */
 package example;
 
-import org.fusesource.stomp.jms.*;
-import javax.jms.*;
+import javax.jms.Connection;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.MessageConsumer;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
+import net.sf.json.JSONObject;
+
+import org.fusesource.stomp.jms.StompJmsConnectionFactory;
+import org.fusesource.stomp.jms.StompJmsDestination;
 
 class Listener {
 
@@ -51,20 +61,7 @@ class Listener {
                     break;
                 } else {
                 	System.out.println("msg:"+body);
-                	/*
-                    if( count != msg.getIntProperty("id") ) {
-                        System.out.println("mismatch: "+count+"!="+msg.getIntProperty("id"));
-                    }
-                    count = msg.getIntProperty("id");
-
-                    if( count == 0 ) {
-                        start = System.currentTimeMillis();
-                    }
-                    if( count % 1000 == 0 ) {
-                        System.out.println(String.format("Received %d messages.", count));
-                    }
-                    count ++;
-                    */
+                	JSONObject.fromObject(body);
                 }
 
             } 
