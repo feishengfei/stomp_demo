@@ -1,6 +1,6 @@
 package com.frank.pojo;
 
-public class HeartbeatMessage {
+public class HeartBeat {
 	private String bootloaderVersion;
 	private String deviceId;
 	private String model;
